@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import { useNavigate } from 'react-router-dom';
 
-import { Button } from '../../components';
+import { Button, Avatar } from '../../components';
 
 const pages = ['Home', 'Form', 'List'];
 
@@ -37,6 +37,7 @@ const DefaultNavbar = (props) =>  {
                         </Button>
                     ))}
                     </Box>
+                    <Avatar></Avatar>
                 </Toolbar>
             </AppBar>
         </Box>
