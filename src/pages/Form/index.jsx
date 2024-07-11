@@ -1,5 +1,5 @@
-import {Alert, Button, Checkbox, Grid, IconButton, 
-    Loading, Navbar, TextField, Typography } from "../../components"
+import {Alert, Button, Grid, 
+    Loading, Navbar, TextField, Typography, Fab } from "../../components"
 
 import { FormControlLabel } from '@mui/material';
 
@@ -28,7 +28,7 @@ const handlefakeCreate = () => {
     const resultado = fakeCreate(user, email, pass);
 
     if(resultado) {
-        navigate('/home');
+        navigate('/list');
     } else {
         setAlert(true);
     }
@@ -122,6 +122,11 @@ return (
                                     },
                                 }}>Registre</Button>
                             </Grid>
+                        </Grid>
+                        <Grid item sx={{ position: 'fixed', bottom: '16px', width: '100%', display: {xs:'flex', sm:'none'}, justifyContent: 'center' }}>
+                            <Fab color="primary" aria-label="close">
+                                <Typography sx={{fontSize: '2em'}}>+</Typography>
+                            </Fab>
                         </Grid>
                     </Grid>
             )}

@@ -1,8 +1,7 @@
 
 const fakeCreate = (lastName, firstName, age) => {
-    let user = true;
-    (lastName !== " " && firstName !== " " && age !== " ") ? user = true : user = false;
-    if (user) {
+    console.log(lastName + firstName + age);
+    if ((lastName !== " " && firstName !== " " && age !== " ")) {
         return true;
     } else {
         return false;

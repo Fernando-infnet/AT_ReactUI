@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import {Alert, Button, Checkbox, Grid, IconButton, 
-    Loading, Navbar, TextField, Typography } from "../../components"
+    Loading, Navbar, Fab, TextField, Typography } from "../../components"
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -79,7 +79,13 @@ const Home = () => {
                     </Typography>
                     </Grid>
                 </Grid>
+                    <Grid item sx={{ position: 'fixed', bottom: '16px', width: '100%', display: {xs:'flex', sm:'none'}, justifyContent: 'center' }}>
+                        <Fab color="primary" aria-label="close">
+                            <Typography sx={{fontSize: '2em'}}>+</Typography>
+                        </Fab>
+                    </Grid>
                 </Grid>
+                
         )}
         </Grid>
   );
