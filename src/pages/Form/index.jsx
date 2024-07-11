@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { fakeCreate } from "../../utils/create"
 import { useState } from 'react';
+import { columns, rows } from "../../utils/list";
 
 const Form = () =>  {
 
@@ -107,7 +108,7 @@ return (
 
                                 <TextField
                                     label="Idade"
-                                    type="Text"
+                                    type="number"
                                     onChange={(e) => SetPass(e.target.value)}
                                 ></TextField>
                                 <Button size="large" onClick={handlefakeCreate}
@@ -121,6 +122,11 @@ return (
                                         backgroundColor: '#0056b3',
                                     },
                                 }}>Registre</Button>
+                                {showAlert && (
+                                    <Alert severity="error" onClose={() => setAlert(false)}>
+                                        Item Inválido
+                                    </Alert>
+                                )}
                             </Grid>
                         </Grid>
                         <Grid item sx={{ position: 'fixed', bottom: '16px', width: '100%', display: {xs:'flex', sm:'none'}, justifyContent: 'center' }}>
