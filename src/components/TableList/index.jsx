@@ -2,6 +2,7 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
 import { columns, rows } from '../../utils/list';
+import { Grid } from '..';
 
 const columnsImported = columns
 
@@ -9,7 +10,7 @@ const rowsImported = rows
 
 const DefaultTableList = (props) =>  {
   return <>
-        <div style={{ width: '100%' }}>
+        <Grid sx={{ width: { xs: '100%', sm:'85%' , md: '70%', xl: '55%' } }}>
             <DataGrid
                 rows={rowsImported}
                 columns={columnsImported}
@@ -21,7 +22,7 @@ const DefaultTableList = (props) =>  {
                 pageSizeOptions={[5, 10]}
                 checkboxSelection
             />
-        </div>
+        </Grid>
     </>
 }
 

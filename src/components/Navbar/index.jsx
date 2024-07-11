@@ -26,7 +26,7 @@ const DefaultNavbar = (props) =>  {
                     <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
                         <MenuIcon />
                     </IconButton>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' }, justifyContent: {xs: 'start' , sm: 'center' , md: 'space-evenly'} }}>
                     {pages.map((page) => (
                         <Button
                             key={page}

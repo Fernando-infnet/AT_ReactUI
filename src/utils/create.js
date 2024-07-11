@@ -1,11 +1,11 @@
 
 const fakeCreate = (lastName, firstName, age) => {
-    const user = true;
-    (lastName != " " && firstName != " " && age != " ") ? user = true : user = false;
+    let user = true;
+    (lastName !== " " && firstName !== " " && age !== " ") ? user = true : user = false;
     if (user) {
-        return { success: true, message: "Create successful", user };
+        return true;
     } else {
-        return { success: false, message: "Invalid parameters" };
+        return false;
     }
 }
 
