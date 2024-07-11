@@ -5,12 +5,21 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
+import { useNavigate } from 'react-router-dom';
+
 import { Button } from '../../components';
 
 const pages = ['Home', 'Form', 'List'];
 
 const DefaultNavbar = (props) =>  {
-  return <>
+
+    const navigate = useNavigate();
+
+    const handleNav = (page) => {
+        navigate(`/${page.toLowerCase()}`);
+    }
+
+    return <>
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Toolbar variant="dense">
@@ -21,6 +30,7 @@ const DefaultNavbar = (props) =>  {
                     {pages.map((page) => (
                         <Button
                             key={page}
+                            onClick={() => handleNav(page)}
                             sx={{ my: 2, color: 'white', display: 'block' }}
                         >
                             {page}

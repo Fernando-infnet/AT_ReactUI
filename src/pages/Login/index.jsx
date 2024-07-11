@@ -4,16 +4,30 @@ import {Alert, Button, Checkbox, Grid, IconButton,
 
 import { FormControlLabel } from '@mui/material';
 
+import { useNavigate } from 'react-router-dom';
+
 import { fakeLogin } from "../../utils/login"
 import { useState } from 'react';
-
-
 
 const Login = () =>  {
 
     const [user, SetUser] = useState("")
     const [email, SetEmail] = useState("")
     const [pass, SetPass] = useState("")
+
+    const [showAlert, setAlert] = useState(false);
+    const navigate = useNavigate();
+
+    const handlefakeLogin = () => {
+        
+        const resultado = fakeLogin(user, email, pass);
+
+        if(resultado) {
+            navigate('/home');
+        } else {
+            setAlert(true);
+        }
+    }    
 
     return <>
         <Grid 
@@ -62,6 +76,7 @@ const Login = () =>  {
                         type="email"
                         onChange={(e) => SetEmail(e.target.value)}
                     ></TextField>
+
                     <TextField
                         label="Senha"
                         type="password"
@@ -72,7 +87,7 @@ const Login = () =>  {
                         label="Receber Novidades no email"
                     >
                     </FormControlLabel>
-                    <Button size="large" onClick={fakeLogin(user,email,pass)}
+                    <Button size="large" onClick={handlefakeLogin}
                     sx={{
                         height: '40px',
                         border: 'none',
@@ -83,6 +98,11 @@ const Login = () =>  {
                             backgroundColor: '#0056b3',
                         },
                     }}>Continuar</Button>
+                    {showAlert && (
+                        <Alert severity="error" onClose={() => setAlert(false)}>
+                            Login inválido. Verifique suas credenciais.
+                        </Alert>
+                    )}
                 </Grid>
             </Grid>
         </Grid>

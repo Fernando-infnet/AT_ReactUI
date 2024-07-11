@@ -1,12 +1,9 @@
 
 const fakeLogin = (username, email , password) => {
-    console.log("a")
-    let user = true;
-    (username !== "" && email !== "" && password !== "") ? user = true : user = false;
-    if (user) {
-        return { success: true, message: "Login successful", user };
+    if ((username !== "" && email !== "" && password !== "")) {
+        return true;
     } else {
-        return { success: false, message: "Invalid username or password" };
+        return false;
     }
 }
 
